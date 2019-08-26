@@ -8,10 +8,19 @@ import javax.persistence.Query;
 import br.com.mycompany.hibernatejpa.connection.ConnectionFactory;
 import br.com.mycompany.hibernatejpa.model.bean.AbstractBean;
 
+/**
+ * This is a concrete implementation of DAO interface.
+ * @author Luis
+ *
+ * @param <K> Primary key type of mapped entities.
+ * @param <T> Type of mapped entities.
+ */
 public class ConcreteDAO<K, T extends AbstractBean> implements DAO<K, T> {
 
 	/**
-	 * 
+	 * Finds an entity on database given it's ID. If the entity exists, this method
+	 * will return an instance of entity mapped class with each attribute filled with
+	 * its corresponding table collumn.
 	 */
 	@Override
 	public T find(Class<T> c, K k) {
@@ -33,7 +42,7 @@ public class ConcreteDAO<K, T extends AbstractBean> implements DAO<K, T> {
 	}
 
 	/**
-	 * 
+	 * Return a list of all entities persisted on the database until present moment. 
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -57,7 +66,8 @@ public class ConcreteDAO<K, T extends AbstractBean> implements DAO<K, T> {
 	}
 
 	/**
-	 * 
+	 * Remove an entity from database given its primary key. If the entity exists,
+	 * then it'll be deleted. Otherwise, nothing occurs. 
 	 */
 	@Override
 	public T remove(Class<T> c, K k) {
@@ -84,7 +94,8 @@ public class ConcreteDAO<K, T extends AbstractBean> implements DAO<K, T> {
 	}
 
 	/**
-	 * 
+	 * Persist an entity inside database or update it's information. Note that in
+	 * order to persist or update an existing entry.
 	 */
 	@Override
 	public T save(T t) {
