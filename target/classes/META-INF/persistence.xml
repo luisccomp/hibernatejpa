@@ -11,7 +11,7 @@
 		<class>br.com.mycompany.hibernatejpa.model.bean.Product</class>
 		<properties>
 			<!-- Database connection properties. -->
-			<property name="javax.persistence.jdbc.driver" value="org.postgres.Driver"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
 			<property name="javax.persistence.jdbc.user" value="postgres"/>
 			<property name="javax.persistence.jdbc.password" value="12345"/>

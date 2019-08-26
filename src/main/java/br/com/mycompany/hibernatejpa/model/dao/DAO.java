@@ -1,10 +1,43 @@
 package br.com.mycompany.hibernatejpa.model.dao;
 
+import java.util.List;
+
+import br.com.mycompany.hibernatejpa.model.bean.AbstractBean;
+
 /**
- * This is an interface of a generic DAO. A generic DAO will be util to persist every
- * entity inside this application into database.
+ * 
  * @author Luis
+ *
+ * @param <K>
+ * @param <T>
  */
-public interface DAO {
+public interface DAO <K, T extends AbstractBean> {
+	/**
+	 * 
+	 * @param c
+	 * @param k
+	 * @return
+	 */
+	public T find(Class<T> c, K k);
 	
+	/**
+	 * 
+	 * @param c
+	 * @return
+	 */
+	public List<T> findAll(Class<T> c);
+	
+	/**
+	 * 
+	 * @param t
+	 * @return
+	 */
+	public T remove(Class<T> c, K k);
+	
+	/**
+	 * 
+	 * @param t
+	 * @return
+	 */
+	public T save(T t);
 }

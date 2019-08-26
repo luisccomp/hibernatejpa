@@ -1,6 +1,7 @@
 package br.com.mycompany.hibernatejpa.model.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -14,6 +15,7 @@ public class Product extends AbstractBean {
 	private String description;
 	private Integer quantity;
 	private Double value;
+	@ManyToOne
 	private Category category;
 
 	public String getName() {
